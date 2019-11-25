@@ -74,28 +74,28 @@ class GameOfWar {
         console.log("============= Game of War =============");
 
         do {
-            console.log(`Player One's card :${playerOne[0].card} vs Player Two's card :${playerTwo[0].card}`)
-            if (playerOne[0].rank == playerTwo[0].rank) {
+            console.log(`Player One's card :${this.playerOne[0].card} vs Player Two's card :${this.playerTwo[0].card}`)
+            if (this.playerOne[0].rank == this.playerTwo[0].rank) {
                 console.log('Tie! Both players place their cards on the bottom of the deck.')
-                playerOne[0].push(playerOne);
-                playerTwo[0].push(playerTwo);
+                this.playerOne[0].push(this.playerOne);
+                this.playerTwo[0].push(this.playerTwo);
             }
-            else if(playerOne[0].rank > playerTwo[0].rank){
+            else if(this.playerOne[0].rank > this.playerTwo[0].rank){
               console.log('Player One wins the hand and takes both cards!')
-              playerOne[0].push(playerOne);
-              playerTwo[0].push(playerOne);
+              this.playerOne[0].push(this.playerOne);
+              this.playerTwo[0].push(this.playerOne);
             }
-            else if(playerOne[0].rank < playerTwo[0].rank){
+            else if(this.playerOne[0].rank < this.playerTwo[0].rank){
               console.log('Player Two wins the hand and takes both cards!')
-              playerOne[0].push(playerTwo);
-              playerTwo[0].push(playerTwo);
+              this.playerOne[0].push(this.playerTwo);
+              this.playerTwo[0].push(this.playerTwo);
             }
         }
-        while (playerOne.length != 0 && playerTwo.length != 0);
-        if(playerOne.length == 0){
+        while (this.playerOne.length != 0 && this.playerTwo.length != 0);
+        if(this.playerOne.length == 0){
           console.log("Player Two Wins!")
         }
-        else if(playerTwo.length ==0){
+        else if(this.playerTwo.length ==0){
           console.log("Player One Wins!")
         }
     }
