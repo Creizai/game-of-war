@@ -62,49 +62,53 @@ class GameOfWar {
         this.playerTwo = [];
 
         // Fills playerOne's deck with the first half of the random cards
-        for (var i = 0; i < (deck.length); i+=2) {
+        for (var i = 0; i < deck.length; i += 2) {
             this.playerOne.push(deck[i])
-            this.playerTwo.push(deck[i+1])
+            this.playerTwo.push(deck[i + 1])
         }
 
         console.log("============= Game of War =============");
-        console.log(`Player One's card :${this.playerOne[0].suit} ${this.playerOne[0].rank}`);
-        console.log(`vs`);
-        console.log(`Player Two's card :${this.playerTwo[0].suit} ${this.playerOne[0].rank}`);
-        /**
-                do {
-                    console.log(`Player One's card :${this.playerOne[0].suit} ${this.playerOne[0].rank}`)
-                    console.log(`vs`)
-                    console.log(`Player Two's card :${this.playerTwo[0].suit} ${this.playerOne[0].rank}`)
-                    if (this.playerOne[0].value == this.playerTwo[0].value) {
-                        console.log('Tie! Both players place their cards on the bottom of the deck.')
-                        this.playerOne.push(this.playerOne[0]);
-                        this.playerOne.shift();
-                        this.playerTwo.push(this.playerTwo[0]);
-                        this.playerTwo.shift();
-                    } else if (this.playerOne[0].value > this.playerTwo[0].value) {
-                        console.log('Player One wins the hand and takes both cards!')
-                        this.playerOne.push(this.playerOne[0]);
-                        this.playerOne.shift();
-                        this.playerTwo.push(this.playerOne[0]);
-                        this.playerTwo.shift();
-                    } else if (this.playerOne[0].value < this.playerTwo[0].value) {
-                        console.log('Player Two wins the hand and takes both cards!')
-                        this.playerOne.push(this.playerTwo[0]);
-                        this.playerOne.shift();
-                        this.playerTwo.push(this.playerTwo[0]);
-                        this.playerTwo.shift();
-                    }
-                }
-                while (this.playerOne.length > 0 && this.playerTwo.length > 0);
-                if (this.playerOne.length == 0) {
-                    console.log("Player Two Wins!")
-                } else if (this.playerTwo.length == 0) {
-                    console.log("Player One Wins!")
-                }
-        */
+        // console.log(`Player One's card :${this.playerOne[0].suit} ${this.playerOne[0].rank} Value:${this.playerOne[0].value}`);
+        // console.log(`vs`);
+        // console.log(`Player Two's card :${this.playerTwo[0].suit} ${this.playerTwo[0].rank} Value:${this.playerTwo[0].value}`);
+
+
+        do {
+            console.log(`Player One's card :${this.playerOne[0].suit} ${this.playerOne[0].rank}`)
+            console.log(`vs`)
+            console.log(`Player Two's card :${this.playerTwo[0].suit} ${this.playerTwo[0].rank}`)
+
+            if (this.playerOne[0].value > this.playerTwo[0].value) {
+                console.log('Player One wins the hand and takes both cards!')
+                this.playerOne.push(this.playerOne[0]);
+                this.playerOne.shift();
+                this.playerTwo.push(this.playerOne[0]);
+                this.playerTwo.shift();
+            } else if (this.playerOne[0].value < this.playerTwo[0].value) {
+                console.log('Player Two wins the hand and takes both cards!')
+                this.playerOne.push(this.playerTwo[0]);
+                this.playerOne.shift();
+                this.playerTwo.push(this.playerTwo[0]);
+                this.playerTwo.shift();
+            } else {
+                console.log('Tie! Both players place their cards on the bottom of the deck.')
+                this.playerOne.push(this.playerOne[0]);
+                this.playerOne.shift();
+                this.playerTwo.push(this.playerTwo[0]);
+                this.playerTwo.shift();
+            }
+        }
+        while (this.playerOne.length > 0 && this.playerTwo.length > 0);
+
+        if (this.playerOne.length == 0) {
+            console.log("Player Two Wins!")
+        } else if (this.playerTwo.length == 0) {
+            console.log("Player One Wins!")
+        }
     }
 }
+
+
 
 const deck = new Deck()
 const game = new GameOfWar(deck.cards)
