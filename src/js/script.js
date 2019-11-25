@@ -43,15 +43,15 @@ class Deck {
             }
         }
 
-        for (let k = this.cards.length - 1; k > 0; k--) {
-            let l = Math.floor(Math.random() * (k + 1)); // random index from 0 to i
+        for (let i = this.cards.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
 
             // swap elements array[i] and array[j]
             // we use "destructuring assignment" syntax to achieve that
             // you'll find more details about that syntax in later chapters
             // same can be written as:
             // let t = array[i]; array[i] = array[j]; array[j] = t
-            [this.cards[k], this.cards[l]] = [this.cards[l], this.cards[k]];
+            [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
         }
     }
 }
@@ -71,22 +71,23 @@ class GameOfWar {
         // console.log(`Player One's card :${this.playerOne[0].suit} ${this.playerOne[0].rank} Value:${this.playerOne[0].value}`);
         // console.log(`vs`);
         // console.log(`Player Two's card :${this.playerTwo[0].suit} ${this.playerTwo[0].rank} Value:${this.playerTwo[0].value}`);
-
-
+    }
+    /**
+    playGame() {
         do {
-            console.log(`Player One's card :${this.playerOne[0].suit} ${this.playerOne[0].rank}`)
+            console.log(`Player One's card :${this.playerOne[0].suit} ${this.playerOne[0].rank} ${this.playerOne[0].value}`)
             console.log(`vs`)
-            console.log(`Player Two's card :${this.playerTwo[0].suit} ${this.playerTwo[0].rank}`)
+            console.log(`Player Two's card :${this.playerTwo[0].suit} ${this.playerTwo[0].rank} ${this.playerOne[0].value}`)
 
             if (this.playerOne[0].value > this.playerTwo[0].value) {
                 console.log('Player One wins the hand and takes both cards!')
                 this.playerOne.push(this.playerOne[0]);
                 this.playerOne.shift();
-                this.playerTwo.push(this.playerOne[0]);
+                this.playerOne.push(this.playerTwo[0]);
                 this.playerTwo.shift();
             } else if (this.playerOne[0].value < this.playerTwo[0].value) {
                 console.log('Player Two wins the hand and takes both cards!')
-                this.playerOne.push(this.playerTwo[0]);
+                this.playerTwo.push(this.playerTwo[0]);
                 this.playerOne.shift();
                 this.playerTwo.push(this.playerTwo[0]);
                 this.playerTwo.shift();
@@ -99,19 +100,20 @@ class GameOfWar {
             }
         }
         while (this.playerOne.length > 0 && this.playerTwo.length > 0);
-
         if (this.playerOne.length == 0) {
             console.log("Player Two Wins!")
         } else if (this.playerTwo.length == 0) {
             console.log("Player One Wins!")
         }
     }
+    */
 }
 
 
 
 const deck = new Deck()
 const game = new GameOfWar(deck.cards)
+
 
 //Testing deck length
 //console.log(game.playerOne.length + " " + game.playerTwo.length)
@@ -132,3 +134,5 @@ console.log(game.playerOne[0].value + " " + game.playerOne[0].rank + " " + game.
 console.log(deck)
 console.log("hello!");
 console.log(game)
+
+game.playGame();
