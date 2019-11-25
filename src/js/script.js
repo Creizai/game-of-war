@@ -72,41 +72,36 @@ class GameOfWar {
         // console.log(`vs`);
         // console.log(`Player Two's card :${this.playerTwo[0].suit} ${this.playerTwo[0].rank} Value:${this.playerTwo[0].value}`);
     }
-    /**
     playGame() {
-        do {
-            console.log(`Player One's card :${this.playerOne[0].suit} ${this.playerOne[0].rank} ${this.playerOne[0].value}`)
-            console.log(`vs`)
-            console.log(`Player Two's card :${this.playerTwo[0].suit} ${this.playerTwo[0].rank} ${this.playerOne[0].value}`)
+            while (this.playerOne.length > 0 && this.playerTwo.length > 0) {
+                console.log(`Player One's card :${this.playerOne[0].suit} ${this.playerOne[0].rank} ${this.playerOne[0].value}`)
+                console.log(`vs`)
+                console.log(`Player Two's card :${this.playerTwo[0].suit} ${this.playerTwo[0].rank} ${this.playerOne[0].value}`)
 
-            if (this.playerOne[0].value > this.playerTwo[0].value) {
-                console.log('Player One wins the hand and takes both cards!')
-                this.playerOne.push(this.playerOne[0]);
-                this.playerOne.shift();
-                this.playerOne.push(this.playerTwo[0]);
-                this.playerTwo.shift();
-            } else if (this.playerOne[0].value < this.playerTwo[0].value) {
-                console.log('Player Two wins the hand and takes both cards!')
-                this.playerTwo.push(this.playerTwo[0]);
-                this.playerOne.shift();
-                this.playerTwo.push(this.playerTwo[0]);
-                this.playerTwo.shift();
-            } else {
-                console.log('Tie! Both players place their cards on the bottom of the deck.')
-                this.playerOne.push(this.playerOne[0]);
-                this.playerOne.shift();
-                this.playerTwo.push(this.playerTwo[0]);
-                this.playerTwo.shift();
+                if (this.playerOne[0].value > this.playerTwo[0].value) {
+                    console.log('Player One wins the hand and takes both cards!')
+
+                    this.playerOne.push(this.playerOne.shift());
+                    this.playerOne.push(this.playerTwo.shift());
+                    
+                } else if (this.playerOne[0].value < this.playerTwo[0].value) {
+                    console.log('Player Two wins the hand and takes both cards!')
+                    this.playerTwo.push(this.playerOne.shift());
+                    this.playerTwo.push(this.playerTwo.shift());
+                    
+                } else {
+                    console.log('Tie! Both players place their cards on the bottom of the deck.')
+                    this.playerOne.push(this.playerOne.shift());
+                    this.playerTwo.push(this.playerTwo.shift());
+                }
+            }
+
+            if (this.playerOne.length == 0) {
+                console.log("Player Two Wins!")
+            } else if (this.playerTwo.length == 0) {
+                console.log("Player One Wins!")
             }
         }
-        while (this.playerOne.length > 0 && this.playerTwo.length > 0);
-        if (this.playerOne.length == 0) {
-            console.log("Player Two Wins!")
-        } else if (this.playerTwo.length == 0) {
-            console.log("Player One Wins!")
-        }
-    }
-    */
 }
 
 
