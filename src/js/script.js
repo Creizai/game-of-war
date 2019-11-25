@@ -67,32 +67,32 @@ class GameOfWar {
         }
 
         // Fills playerTwo's deck with the first half of the random cards
-        for (var i = (deck.length / 2) + 1; i < deck.length; i++) {
+        for (var i = (deck.length / 2); i < deck.length; i++) {
             this.playerTwo.push(deck[i])
         }
 
         console.log("============= Game of War =============");
-/**
+/*
         do {
             console.log(`Player One's card :${this.playerOne[0].suit} ${this.playerOne[0].rank} vs Player Two's card :${this.playerTwo[0].suit} ${this.playerOne[0].rank}`)
             if (this.playerOne[0].value == this.playerTwo[0].value) {
                 console.log('Tie! Both players place their cards on the bottom of the deck.')
-                this.playerOne[0].push(this.playerOne);
-                this.playerOne[0].shift();
-                this.playerTwo[0].push(this.playerTwo);
-                this.playerTwo[0].shift();
+                this.playerOne.push(this.playerOne[0]);
+                this.playerOne.shift();
+                this.playerTwo.push(this.playerTwo[0]);
+                this.playerTwo.shift();
             } else if (this.playerOne[0].value > this.playerTwo[0].value) {
                 console.log('Player One wins the hand and takes both cards!')
-                this.playerOne[0].push(this.playerOne);
-                this.playerOne[0].shift();
-                this.playerTwo[0].push(this.playerOne);
-                this.playerTwo[0].shift();
+                this.playerOne.push(this.playerOne[0]);
+                this.playerOne.shift();
+                this.playerTwo.push(this.playerOne[0]);
+                this.playerTwo.shift();
             } else if (this.playerOne[0].value < this.playerTwo[0].value) {
                 console.log('Player Two wins the hand and takes both cards!')
-                this.playerOne[0].push(this.playerTwo);
-                this.playerOne[0].shift();
-                this.playerTwo[0].push(this.playerTwo);
-                this.playerTwo[0].shift();
+                this.playerOne.push(this.playerTwo[0]);
+                this.playerOne.shift();
+                this.playerTwo.push(this.playerTwo[0]);
+                this.playerTwo.shift();
             }
         }
         while (this.playerOne.length != 0 && this.playerTwo.length != 0);
@@ -107,18 +107,19 @@ class GameOfWar {
 
 const deck = new Deck()
 const game = new GameOfWar(deck.cards)
-
+console.log(game.playerOne.length + " " + game.playerTwo.length)
 
 // Testing proper move to end of array and deletion of element 
+/*
 console.log(game.playerOne[0].value + " " + game.playerOne[0].rank + " " + game.playerOne[0].suit);
 console.log(game.playerOne[1].value + " " + game.playerOne[1].rank + " " + game.playerOne[1].suit);
 
 game.playerOne.push(game.playerOne[0]);
 game.playerOne.shift();
-console.log(game.playerOne[game.playerOne.length-1].value + " " + game.playerOne[game.playerOne.length-1].rank + " " + game.playerOne[game.playerOne.length-1].suit);
-
+console.log(game.playerOne[game.playerOne.length - 1].value + " " + game.playerOne[game.playerOne.length - 1].rank + " " + game.playerOne[game.playerOne.length - 1].suit);
 
 console.log(game.playerOne[0].value + " " + game.playerOne[0].rank + " " + game.playerOne[0].suit);
+*/
 
 /**
 console.log(deck)
