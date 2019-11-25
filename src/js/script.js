@@ -70,6 +70,34 @@ class GameOfWar {
         for (var i = (deck.length / 2) + 1; i < deck.length; i++) {
             this.playerTwo.push(deck[i])
         }
+
+        console.log("============= Game of War =============");
+
+        do {
+            console.log(`Player One's card :${playerOne[0].card} vs Player Two's card :${playerTwo[0].card}`)
+            if (playerOne[0].rank == playerTwo[0].rank) {
+                console.log('Tie! Both players place their cards on the bottom of the deck.')
+                playerOne[0].push(playerOne);
+                playerTwo[0].push(playerTwo);
+            }
+            else if(playerOne[0].rank > playerTwo[0].rank){
+              console.log('Player One wins the hand and takes both cards!')
+              playerOne[0].push(playerOne);
+              playerTwo[0].push(playerOne);
+            }
+            else if(playerOne[0].rank < playerTwo[0].rank){
+              console.log('Player Two wins the hand and takes both cards!')
+              playerOne[0].push(playerTwo);
+              playerTwo[0].push(playerTwo);
+            }
+        }
+        while (playerOne.length != 0 && playerTwo.length != 0);
+        if(playerOne.length == 0){
+          console.log("Player Two Wins!")
+        }
+        else if(playerTwo.length ==0){
+          console.log("Player One Wins!")
+        }
     }
 }
 
